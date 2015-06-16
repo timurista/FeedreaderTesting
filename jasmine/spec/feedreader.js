@@ -32,7 +32,7 @@ $(function() {
          * and that the URL is not empty.
          */
         it('should have a defined url and url not empty', function() {
-            allFeeds.forEach( function(feed) {
+            allFeeds.forEach(function(feed) {
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).toBeGreaterThan(0);
             });
@@ -43,7 +43,7 @@ $(function() {
          * and that the name is not empty.
          */
         it('should have a defined name and name not empty', function() {
-            allFeeds.forEach( function(feed) {
+            allFeeds.forEach(function(feed) {
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).toBeGreaterThan(0);
             });
@@ -54,7 +54,7 @@ $(function() {
     /* A new test suite named "The menu" */
     describe('The menu', function() {
         var $menu = $('body')[0];
-        console.log($menu);
+        // console.log($menu);
 
         /* A test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
@@ -84,11 +84,10 @@ $(function() {
 
     // A test suite for seeing if clicking the menu items changes the page
     describe('Clicking Menu Items', function() {
-        var entries = $('.feed .entry h2').html();
         beforeEach(function () {
             // initial click to load menu
             $('.menu-icon-link').click();
-        })
+        });
 
         // A test which ensures that the page content changes when element is clicked
         it('Menu Items should be shown', function() {
@@ -133,7 +132,7 @@ $(function() {
         beforeEach(function(done) {
             loadFeed(0, function() {
                 title = $('.feed .entry h2').html();
-                header = $('h1.header-title').html();           
+                header = $('h1.header-title').html();
             // load feeds 
             loadFeed(1, done);
             });
@@ -143,8 +142,8 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
         it('should have some new content', function(done) {
-            console.log($('.feed .entry h2').html());
-            console.log(header);
+            // console.log($('.feed .entry h2').html());
+            // console.log(header);
             // content should change
             expect($('.feed .entry h2').html()).not.toBe(header);
             // invoke the done callback function
@@ -154,8 +153,8 @@ $(function() {
          * by the loadFeed function that the content actually changes.
         */
         it('should load a new feed with content that actually changes', function(done) {
-            console.log($('h1.header-title').html());
-            console.log(title);
+            // console.log($('h1.header-title').html());
+            // console.log(title);
             // content should change
             expect($('h1.header-title').html()).not.toBe(title);
             // invoke the done callback function
