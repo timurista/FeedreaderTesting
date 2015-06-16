@@ -12,7 +12,7 @@ Analyze the test message, many times it could be that during development the nam
 
 -If your test fails because ajax call fails, the user should double check their ajax function has a proper callback and failing situations are being handled appropriately.
 
-## 9 Included tests:
+## 10 Included tests:
 - RSS Feeds
 	1 are defined
 	2 should have a defined url and url not empty
