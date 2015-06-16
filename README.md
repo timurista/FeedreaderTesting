@@ -31,6 +31,6 @@ Analyze the test message, many times it could be that during development the nam
 	10 should have images for each entry (!this test should fail)
 
 ## Information on resources to develop your own tests
-- [Jasmine]http://jasmine.github.io/
+- [Jasmine](http://jasmine.github.io/)
 - Udacity blog on jasmine testing suite
-- [Using Jasmine Framework]http://www.htmlgoodies.com/beyond/javascript/testing-javascript-using-the-jasmine-framework.html
+- [Using Jasmine Framework](http://www.htmlgoodies.com/beyond/javascript/testing-javascript-using-the-jasmine-framework.html)
