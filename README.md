@@ -14,21 +14,21 @@ Analyze the test message, many times it could be that during development the nam
 
 ## 10 Included tests:
 - RSS Feeds
-	1 are defined
-	2 should have a defined url and url not empty
-	3 should have a defined name and name not empty
+	1. are defined
+	2. should have a defined url and url not empty
+	3. should have a defined name and name not empty
 - The menu
-	4 should be hidden at the start
-	5 should toggle visibility when clicked
+	4. should be hidden at the start
+	5. should toggle visibility when clicked
 - Clicking Menu Items
-	6 Menu Items should be shown on click
+	6. Menu Items should be shown on click
 - Initial Entries
-	7 should have one entry in the feeder
+	7. should have one entry in the feeder
 - News Feed Selection
-	8 should have some new content
-	9 should load a new feed with content that actually changes
+	8. should have some new content
+	9. should load a new feed with content that actually changes
 - Experimental Testing (!this suite should fail)
-	10 should have images for each entry (!this test should fail)
+	10. should have images for each entry (!this test should fail)
 
 ## Information on resources to develop your own tests
 - [Jasmine](http://jasmine.github.io/)
