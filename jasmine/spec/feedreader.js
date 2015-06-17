@@ -53,16 +53,14 @@ $(function() {
 
     /* A new test suite named "The menu" */
     describe('The menu', function() {
-        var $menu = $('body')[0];
-        // console.log($menu);
-
+        var menu = $('body')[0];
         /* A test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
         it('should be hidden at the start', function() {
-            expect($menu.className).toMatch('menu-hidden');
+            expect(menu.className).toMatch('menu-hidden');
         });
 
          /* A test that ensures the menu changes
@@ -73,10 +71,10 @@ $(function() {
         it('should toggle visibility when clicked', function() {
             //click once
             $('.menu-icon-link').click();
-            expect($menu.className.length).toMatch(0);
+            expect(menu.className.length).toMatch(0);
             // click again
             $('.menu-icon-link').click();
-            expect($menu.className).toMatch('menu-hidden');
+            expect(menu.className).toMatch('menu-hidden');
         });
 
 
@@ -86,7 +84,9 @@ $(function() {
     describe('Clicking Menu Items', function() {
         beforeEach(function () {
             // initial click to load menu
-            $('.menu-icon-link').click();
+            if (!$('.menu-icon-link').length) {
+              $('.menu-icon-link').click();
+            }
         });
 
         // A test which ensures that the page content changes when element is clicked
@@ -97,7 +97,6 @@ $(function() {
         });
         afterAll(function () {
             $('ul.feed-list li')[0].click();
-            $('.menu-icon-link').click();
         });
 
     });
@@ -105,10 +104,8 @@ $(function() {
     /* A new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
         beforeEach(function(done) {
-            setTimeout(function() {
-                // invoke done as callback inside loadfeed
-                loadFeed(0, done());
-            }, 2000);
+          // invoke done as callback inside loadfeed
+          loadFeed(0, done);
         });
         /* A test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -117,7 +114,6 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         it('should have one entry in the feeder', function(done) {
-            // console.log($('.feed').children()[0].className);
             expect($('.feed').children().length).not.toBe(0);
             expect($('.feed').children()[0].className).toMatch('entry');
             done();
@@ -126,15 +122,15 @@ $(function() {
     });
 
     /* A new test suite named "New Feed Selection" */
-    describe('News Feed Selection', function(done) {
+    describe('News Feed Selection', function() {
         var title, header;
 
         beforeEach(function(done) {
             loadFeed(0, function() {
-                title = $('.feed .entry h2').html();
-                header = $('h1.header-title').html();
-            // load feeds 
-            loadFeed(1, done);
+              title = $('.feed .entry h2').html();
+              header = $('h1.header-title').html();
+              // load feeds 
+              loadFeed(1, done);
             });
         });
         /* A test that ensures when a new feed is loaded
@@ -142,10 +138,8 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
         it('should have some new content', function(done) {
-            // console.log($('.feed .entry h2').html());
-            // console.log(header);
             // content should change
-            expect($('.feed .entry h2').html()).not.toBe(header);
+            expect($('.feed .entry h2').html()).not.toBe(title);
             // invoke the done callback function
             done(); 
         }); 
@@ -153,10 +147,8 @@ $(function() {
          * by the loadFeed function that the content actually changes.
         */
         it('should load a new feed with content that actually changes', function(done) {
-            // console.log($('h1.header-title').html());
-            // console.log(title);
             // content should change
-            expect($('h1.header-title').html()).not.toBe(title);
+            expect($('h1.header-title').html()).not.toBe(header);
             // invoke the done callback function
             done(); 
         });
@@ -168,11 +160,9 @@ $(function() {
    });
     // New Features Testing
     describe('Experimental Testing', function() {
-        beforeEach(function(done) {
-            setTimeout(function() {
-                // invoke done as callback inside loadfeed
-                loadFeed(0, done());
-            }, 2000);
+        beforeEach(function(done) {  
+          // invoke done as callback inside loadfeed
+          loadFeed(0, done); 
         });
 
         // make sure when content is loaded, blog post images are included
